@@ -1,0 +1,47 @@
+body,div {
+  padding: 0;
+  margin: 0;
+  display:flex;
+  flex:1;
+}
+#msg{
+  position:absolute;
+  left:10vh;
+  font-size:5em;
+  top:10vh;
+  display:none;
+}
+.colonne{flex-direction: column;}
+img{width: 45vw;}
+
+.taquin{
+  padding: 5vh 5vw;
+  margin: 5vh 5vw;
+  background-color:#6d071a;
+  border-radius: 20px;
+  flex-direction: column;
+  flex:none;
+  align-items: center;
+}
+.score{width:10vw;color:white;}
+#score{width:16vw;color:white;}
+
+.case,.vide{
+  background-color:cadetblue;
+  border:1px solid black;
+  font-size:5em;
+  border-radius: 10px;
+  margin: 0.2vh 0.2vw;
+  flex:none;
+  height:25vh;
+  width:25vh;
+  align-items: center;
+  justify-content: center;
+}
+button{
+  width:8vw;
+}
+.vide{
+  background-color: #6d071a;
+  border:none;
+}
