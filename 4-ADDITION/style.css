@@ -1,0 +1,45 @@
+.color1{  background-color: #477998;}
+.color2{  background-color: #c4d6b0;}
+.color3{background-color: #e5d9f2;}
+.color4{background-color: #e55934;}
+.color5{background-color: lightgrey;}
+
+body,div,button,a,main{
+  display: flex;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+}
+main{position: relative;}
+img {width: 100%;}
+.colonne{flex-direction:column;}
+.flexNone{flex:none;}
+.wdt5{width:5vw;}
+
+#resultat{
+  width:50%;
+  left:30%;
+  top:15vh;
+  position:absolute;
+}
+
+.container{
+  justify-content: center;
+  padding-top:3vh;
+}
+
+.home{
+  width:5vw;
+  margin:0 auto;
+  padding: 5vh 0;
+}
+
+.boite{
+  padding:2vh 2vw;
+  border:solid black 3px;
+  font-size:2em;
+  border-radius:10px;
+  width:5vw;
+  margin:0 1vw;
+  justify-content:center;
+}
