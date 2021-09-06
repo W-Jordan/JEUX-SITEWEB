@@ -19,7 +19,7 @@ img {width: 100%;}
 }
 button{
   flex:none;
-  width:5vw;
+  width:10vw;
   height:3vh;
   align-self:center;
   margin-top: 1vh;

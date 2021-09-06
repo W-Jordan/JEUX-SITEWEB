@@ -1,5 +1,5 @@
 var lesCartes = document.getElementsByClassName('imgMemory');
-var tabCarteRetournee=[];
+var tabCarteRetournee=[],tabCarteTrouvees=[];
 var leNombreClique = document.getElementById('clique');
 var leNombrePaire = document.getElementById('paire');
 var lesHeros = document.getElementsByClassName('hero');
@@ -9,9 +9,9 @@ msg.addEventListener('click',function(){msg.style.display='none';})
 document.getElementById('solution').addEventListener('click',solution);
 document.getElementById('init').addEventListener('click',init);
 
-for (let i = 0; i < lesHeros.length; i++) {
-  let hero = lesHeros[i].id.toUpperCase();
-  lesHeros[i].addEventListener('click',function(){preparerCartes(hero);});
+for (let leHero of lesHeros) {
+  let hero = leHero.id.toUpperCase();
+  leHero.addEventListener('click',function(){preparerCartes(hero);});
 }
 
 var nbClique = 0,paireTrouvee=0;
@@ -51,8 +51,8 @@ function solution(){
   paireTrouvee=0;
   leNombreClique.innerHTML=nbClique;
   leNombrePaire.innerHTML=paireTrouvee;
-  for (let i = 0; i < lesCartes.length; i++) {
-    lesCartes[i].firstChild.style.display='flex';
+  for (let laCarte of object) {
+    laCarte.firstChild.style.display='flex';
   }
   testerPaire();
 }
@@ -60,7 +60,7 @@ function solution(){
 function retournerCarte(e){
   // si c'est une DIV alors on test son enfant
   if(e.target.tagName=='DIV'){
-    if(e.target.firstChild.style.display='none'){
+    if(e.target.firstChild.style.display=='none'){
       e.target.firstChild.style.display='flex';
       e.target.firstChild.style.transition='transform 0.8s';
       e.target.firstChild.style.transformStyle='preserve-3d';
@@ -90,28 +90,32 @@ function retournerCarte(e){
 
 function testerPaire(){
   //Test les cartes retournées
-    if((tabCarteRetournee[0].src==tabCarteRetournee[1].src)&&tabCarteRetournee.length==2){
+    if((tabCarteRetournee[0].src==tabCarteRetournee[1].src)&&(tabCarteRetournee.length==2)){
       paireTrouvee++;
       // Affiche le nombre de paire
       leNombrePaire.innerHTML=paireTrouvee;
-      for (let i = 0; i < tabCarteRetournee.length; i++) {
-        tabCarteRetournee[i].parentNode.removeEventListener('click',retournerCarte);
-        tabCarteRetournee[i].removeEventListener('click',retournerCarte);
+      for (let carteRetourne of tabCarteRetournee) {
+        carteRetourne.parentNode.removeEventListener('click',retournerCarte);
+        carteRetourne.removeEventListener('click',retournerCarte);
+        tabCarteTrouvees.push(carteRetourne);
       }
       if(paireTrouvee==(lesCartes.length/2)){
         msg.style.display='block';
       }
     }else{
-      for (let i = 0; i < tabCarteRetournee.length; i++) {
-        tabCarteRetournee[i].style.display='none';
+      for (let carteRetourne of tabCarteRetournee) {
+        carteRetourne.style.display='none';
       }
     }
     retournerSelection();
 }
 
 function retournerSelection(){
-  for (let i = 0; i < tabCarteRetournee.length; i++) {
-    tabCarteRetournee[i].style.display='none';
+  for (let carteRetourne of tabCarteRetournee) {
+    carteRetourne.style.display='none';
   }
   tabCarteRetournee=[];
+  for (let carteTrouve of tabCarteTrouvees) {
+    carteTrouve.style.display='flex';
+  }
 }
