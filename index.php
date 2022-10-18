@@ -8,28 +8,7 @@
     <title>Jeux</title>
 </head>
 <body>
-    <div>
-        <!-- MEMORY -->
-        <div class="imgJeux">
-            <a href="./1-MEMORY/index.html">
-                <img src="memory.jpg" alt='memory'>
-            </a>
-        </div>
-
-        <!-- VOITURE -->
-        <div class="imgJeux">
-            <a href="./2-VOITURE/index.html">
-                <img src="voiture.jpg" alt='voiture'>
-            </a>
-        </div>
-
-        <!-- ADDITION -->
-        <div class="imgJeux">
-            <a href="./4-ADDITION/index.html">
-                <img src="addition.png" alt='addition'>
-            </a>
-        </div>
-    </div>
+    
 
 </body>
 </html>
